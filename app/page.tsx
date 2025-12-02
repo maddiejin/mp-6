@@ -2,7 +2,13 @@ import Link from "next/link";
 
 export default function Home() {
   const clientId = process.env.GITHUB_CLIENT_ID_PUBLIC;
-  const redirectUri = "http://127.0.0.1:3000/callback";
+  
+  const baseUrl = process.env.NODE_ENV === 'production' 
+  ? 'mp-6-zeta.vercel.app'
+  : 'http://127.0.0.1:3000';
+
+  // Construct the full redirect URI
+  const redirectUri = `${baseUrl}/callback`;
   
   const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=read:user`;
 
