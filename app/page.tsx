@@ -4,7 +4,7 @@ export default function Home() {
   const clientId = process.env.GITHUB_CLIENT_ID_PUBLIC;
   
   const baseUrl = process.env.NODE_ENV === 'production' 
-  ? 'mp-6-zeta.vercel.app'
+  ? 'https://mp-6-zeta.vercel.app'
   : 'http://127.0.0.1:3000';
 
   // Construct the full redirect URI
